@@ -1,16 +1,4 @@
-// Initialize Firebase
-const firebaseConfig = {
-  apiKey: "AIzaSyDoIgPNgHJsimkEp-KKZImTdJD52UAGyME",
-  authDomain: "notes-2904e.firebaseapp.com",
-  databaseURL: "https://notes-2904e-default-rtdb.firebaseio.com",
-  projectId: "notes-2904e",
-  storageBucket: "notes-2904e.firebasestorage.app",
-  messagingSenderId: "706451714336",
-  appId: "1:706451714336:web:3ad5fc3c940131f2e0e745",
-  measurementId: "G-YLM0X24CM2"
-};
-const app = firebase.initializeApp(firebaseConfig);
-const database = firebase.database();
+
 
 var notes,
   time,
@@ -45,7 +33,7 @@ function addNewNote(
     content = "";
   }
 
-  var newNote = $( 
+  var newNote = $(
     "<div class='" +
       className +
       "'><span class='time'>" +
@@ -111,7 +99,7 @@ function addNewNote(
   }
 }
 
-//save notes to Firebase
+//save notes to local storage
 function saveNotes() {
   var notesArray = [];
   var allNotes = notes.find("> div");
@@ -142,32 +130,29 @@ function saveNotes() {
     checkCount();
   }
 
-  // Save the notes to Firebase Realtime Database
-  const notesRef = database.ref("notes");
-  notesRef.set(notesArray);
+  var json = JSON.stringify(notesArray);
+  localStorage.setItem("zephyo.cute-notes", json);
 }
 
-//load notes from Firebase
+//load notes from local storage
 function loadNotes() {
-  const notesRef = database.ref("notes");
-  notesRef.once("value", function(snapshot) {
-    var notesArray = snapshot.val();
-    if (notesArray) {
-      count = notesArray.length;
-      for (i = 0; i < count; i++) {
-        var note = notesArray[i];
-        addNewNote(
-          note.title,
-          note.content,
-          note.class,
-          note.time,
-          note.posX,
-          note.posY,
-          false
-        );
-      }
+  var localNotes = localStorage.getItem("zephyo.cute-notes");
+  if (localNotes) {
+    var notesArray = JSON.parse(localNotes);
+    count = notesArray.length;
+    for (i = 0; i < count; i++) {
+      var note = notesArray[i];
+      addNewNote(
+        note.title,
+        note.content,
+        note.class,
+        note.time,
+        note.posX,
+        note.posY,
+        false
+      );
     }
-  });
+  }
 }
 
 //set time on clock
