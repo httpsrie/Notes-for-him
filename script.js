@@ -1,5 +1,4 @@
-//Day 18: Paint the assets
-//Day 19: Code it up!
+
 
 var notes,
   time,
@@ -178,10 +177,10 @@ function changeParentTheme(style) {
 //change UI based on note count
 function checkCount() {
   if (count > 0) {
-    $(".controls h2").text("your notes ヽ (´ ▽ ` ) ノ");
+    $(".controls h2").text("your notes (づ๑•ᴗ•๑)づ♡");
     $(".controls").addClass("success");
   } else {
-    $(".controls h2").text("no notes (￣︿￣)");
+    $(".controls h2").text("no notes (｡•́︿•̀｡)");
     $(".controls").removeClass("success");
   }
 }
@@ -209,8 +208,8 @@ $(document).ready(function() {
   // spawn random notes for that initial Study Aesthetic TM
   if (count === 0) {
     setTimeout(function() {
-      addNewNote("we change", "whether we like it or not.");
-      addNewNote("love tends", "to work out\nbetter when\nwe don't need it");
+      addNewNote("I will", "always love you no matter what.");
+      addNewNote("I am ", "always here for you.");
     }, 100);
     count = 3;
   }
