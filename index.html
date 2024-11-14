@@ -1,19 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Cute Notes for u</title>
-  <head>
-	<meta charset="utf-8">
-	<title>cute notes for my baby <3</title>
-	<meta name="description" content="Cute Notes by Florie">
-	<meta name="author" content="Florie">
-
-</head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel="stylesheet" href="./style.css">
-
+  <meta charset="utf-8">
+  <title>cute notes for my baby <3</title>
+  <meta name="description" content="Cute Notes by Florie">
+  <meta name="author" content="Florie">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+
 <!-- partial:index.partial.html -->
 <div class="bot-left"></div>
 <div class="top-left"></div>
@@ -44,9 +42,33 @@
   <div class="s-13"></div>
 </div>
 <!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+
+<!-- Firebase CDN -->
+<script src="https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.9.3/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyDoIgPNgHJsimkEp-KKZImTdJD52UAGyME",
+    authDomain: "notes-2904e.firebaseapp.com",
+    databaseURL: "https://notes-2904e-default-rtdb.firebaseio.com",
+    projectId: "notes-2904e",
+    storageBucket: "notes-2904e.firebasestorage.app",
+    messagingSenderId: "706451714336",
+    appId: "1:706451714336:web:3ad5fc3c940131f2e0e745",
+    measurementId: "G-YLM0X24CM2"
+  };
+
+  // Initialize Firebase
+  const app = firebase.initializeApp(firebaseConfig);
+  const analytics = firebase.analytics(app);
+</script>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js'></script>
-<script src='//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script><script  src="./script.js"></script>
+<script src='//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+<script  src="./script.js"></script>
 
 </body>
 </html>
